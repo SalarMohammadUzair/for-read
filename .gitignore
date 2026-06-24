@@ -38,3 +38,8 @@ __screenshots__/
 # Vite
 *.timestamp-*-*.mjs
 .vercel
+Learning.md
+node_modules/
+dist/
+.env
+.env.local

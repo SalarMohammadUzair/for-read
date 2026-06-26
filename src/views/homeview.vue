@@ -1,7 +1,10 @@
-<script setup>
-import BrutalistButton from './Components/ui/BrutalistButton.vue'
-import brutalistcard from './Components/ui/brutalistcard.vue'
+<style>
 @import 'tailwindcss';
+</style>
+
+<script setup>
+import BrutalistButton from '../Components/ui/BrutalistButton.vue'
+import brutalistcard from '../Components/ui/brutalistcard.vue'
 </script>
 
 <template>
@@ -12,13 +15,11 @@ import brutalistcard from './Components/ui/brutalistcard.vue'
         Book Iono man what is the difference between title and description
       </p>
       <BrutalistButton>Start reading?</BrutalistButton>
+    </brutalistcard>
     <brutalistcard>
       <h1 class="card-title">Another Book</h1>
-      <p class="card-description">
-        This is another brutalist card with a different book.
-      </p>
+      <p class="card-description">This is another brutalist card with a different book.</p>
       <BrutalistButton>Start reading?</BrutalistButton>
-
     </brutalistcard>
   </div>
 </template>
@@ -42,6 +43,4 @@ import brutalistcard from './Components/ui/brutalistcard.vue'
   line-height: 1.5;
   margin-bottom: 24px;
 }
-
-
 </style>

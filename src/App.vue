@@ -3,7 +3,7 @@
 </style>
 <script setup>
 // From what i understand so far, this is where our JavaScript logic goes, so we do not touch it rn
-
+import rightpanel from './Components/layout/rightpanel.vue'
 import sidebar from './Components/layout/sidebar.vue'
 </script>
 
@@ -13,6 +13,7 @@ import sidebar from './Components/layout/sidebar.vue'
     <main class="main-content">
       <router-view></router-view>
     </main>
+    <rightpanel></rightpanel>
   </div>
 </template>
 

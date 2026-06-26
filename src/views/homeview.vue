@@ -26,9 +26,9 @@ import brutalistcard from '../Components/ui/brutalistcard.vue'
 
 <style scoped>
 .homepage {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
 }
 .card-title {
   margin-top: 0;

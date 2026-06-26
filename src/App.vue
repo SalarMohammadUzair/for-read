@@ -20,7 +20,7 @@ import brutalistcard from './Components/ui/brutalistcard.vue'
       <BrutalistButton>Start reading?</BrutalistButton>
       <BrutalistButton>Add to Library</BrutalistButton>
     </brutalistcard>
-    <brutalistcard class="ml-4">
+    <brutalistcard>
       <h2>
         I wanted to see how two cards look stacked alongside each other?? What font should we use?
       </h2>
@@ -30,7 +30,6 @@ import brutalistcard from './Components/ui/brutalistcard.vue'
 </template>
 
 <style scoped>
-@import 'tailwindcss';
 .preview-container {
   display: flex;
   justify-content: center;
@@ -39,6 +38,7 @@ import brutalistcard from './Components/ui/brutalistcard.vue'
   background-color: #faf6ee;
   font-family: sans-serif;
   margin: 0;
+  gap: 16px;
 }
 .brutalist-card {
   background-color: #ffffff;

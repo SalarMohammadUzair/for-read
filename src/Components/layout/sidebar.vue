@@ -1,43 +1,48 @@
+<script setup>
+import { Home } from '@lucide/vue'
+</script>
+
 <template>
   <nav class="sidebar">
-    <h2 class="logo">Chaptr</h2>
 
-    <ul class="nav-links">
-      <li><RouterLink to="/">Home</RouterLink></li>
-      <li><RouterLink to="/library">Library</RouterLink></li>
-      <li><RouterLink to="/settings">Settings</RouterLink></li>
-      <li><RouterLink to="/friends">Friends</RouterLink></li>
-    </ul>
+    <!-- We stack the Icon and the Text inside this link -->
+    <RouterLink to="/" class="nav-item">
+      <Home :size="21" :stroke-width="2.1" />
+      <span>Home</span>
+    </RouterLink>
+
   </nav>
 </template>
+
 <style scoped>
 .sidebar {
-  width: 250px;
-  height: 100vh;
   background-color: #ffffff;
   border-right: 4px solid #000000;
-  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  align-items: center;
+  padding-top: 16px;
+  grid-row: 1 / 3;
 }
-.logo {
-  font-size: 2rem;
-  font-weight: 900;
+
+.nav-item {
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column; /* Stacks the icon above the text */
+  align-items: center;    /* Centers them horizontally */
+  gap: 4px;               /* Adds a tiny gap between icon and text */
+  padding: 8px;
+  cursor: pointer;
+}
+
+.nav-item span {
+  font-size: 0.6rem;      /* Tiny text! */
+  font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 40px;
-  border-bottom: 4px solid #000000;
-  padding-bottom: 8px;
 }
-.nav-links {
-  list-style: none; /* Removes the ugly default bullet points. THIS IS NOT A BOT< I WROTE THIS COMMENT */
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.nav-links a:hover {
+
+.nav-item:hover {
   color: #ffd60a;
-  text-decoration: underline;
 }
 </style>

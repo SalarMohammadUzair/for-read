@@ -1,46 +1,75 @@
 <style>
 @import 'tailwindcss';
 </style>
+<!---->
 
 <script setup>
 import BrutalistButton from '../Components/ui/BrutalistButton.vue'
 import brutalistcard from '../Components/ui/brutalistcard.vue'
+import { useBookStore } from '../stores/bookStore.js'
+const bookStore = useBookStore()
 </script>
 
 <template>
   <div class="homepage">
-    <brutalistcard>
-      <h1 class="card-title">Book Name</h1>
-      <p class="card-description">
-        Book Iono man what is the difference between title and description
-      </p>
-      <BrutalistButton>Start reading?</BrutalistButton>
-    </brutalistcard>
-    <brutalistcard>
-      <h1 class="card-title">Another Book</h1>
-      <p class="card-description">This is another brutalist card with a different book.</p>
-      <BrutalistButton>Start reading?</BrutalistButton>
-    </brutalistcard>
+    <div class="book-container" @click="bookStore.selectBook('The Hobbit')">
+      <div class="cover-frame"></div>
+      <!-- Inner border ring -->
+      <h2 class="cover-title">The Hobbit</h2>
+      <span class="cover-author">J.R.R. Tolkien</span>
+    </div>
+  </div>
+  <div class="homepage">
+    <div class="book-container" @click="bookStore.selectBook('reconstruction of religious thought in islam')">
+      <div class="cover-frame"></div>
+      <!-- Inner border ring -->
+      <h2 class="cover-title">the reconstruction of religious thought in islam</h2>
+      <span class="cover-author">Allama Iqbal</span>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .homepage {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 32px;
 }
-.card-title {
-  margin-top: 0;
-  font-size: 2rem;
+.book-container {
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.book-container:hover {
+  transform: translateY(-4px);
+}
+/* --- The Typography Magic --- */
+
+.cover-frame {
+  position: absolute;
+  top: 30px;
+  left: 10x;
+  right: 10px;
+  text-align: center;
+  font-size: 0.8rem;
   font-weight: 900;
-  margin-bottom: 16px;
+  line-height: 1.1;
   text-transform: uppercase;
+  /* Truncate text with ... if the title is too long! */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.card-description {
-  color: #333333;
-  /* font-size: 1rem; */
-  line-height: 1.5;
-  margin-bottom: 24px;
+.cover-author {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  text-align: center;
+  font-size: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+
 }
+
 </style>

@@ -42,4 +42,4 @@ Learning.md
 node_modules/
 dist/
 .env
-.env.local
+.env.localtranscript.jsonl

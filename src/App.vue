@@ -39,4 +39,7 @@ import sidebar from './Components/layout/sidebar.vue'
   padding: 40px;
   overflow-y: auto;
 }
+:global(body) {
+  font-family: 'courier-new', Courier, monospace;
+}
 </style>

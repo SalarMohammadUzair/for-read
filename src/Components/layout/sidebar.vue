@@ -16,8 +16,8 @@ import { Home } from '@lucide/vue'
 
 <style scoped>
 .sidebar {
-  background-color: #ffffff;
-  border-right: 4px solid #000000;
+  background-color: #f4ecd8;
+  border-right: 1.5px solid #1a1a1a;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -10,8 +10,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0px 16px;
-  border-bottom: 4px solid #000000;
-  background-color: #ffffff;
+  border-bottom: 1.5px solid #1a1a1a;
+  background-color: #f4ecd8;
   grid-column: 2;
   grid-row: 1;
 }

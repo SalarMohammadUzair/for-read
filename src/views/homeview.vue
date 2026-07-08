@@ -4,53 +4,16 @@
 <!---->
 
 <script setup>
-import BrutalistButton from '../Components/ui/BrutalistButton.vue'
+import { onMounted } from 'vue'
 import brutalistcard from '../Components/ui/brutalistcard.vue'
-//
-import {ref, onMounted} from 'vue'
-import { ID } from 'appwrite' // we need this to create new books/generate random IDS ( human mad this comment)
-
-import {databases} from '../appwrite.js'
 import { useBookStore } from '../stores/bookStore.js'
-const bookStore = useBookStore()
-const books = ref([]) // This starts as an empty shelf
-// When the page loads, use the walkie-talkie to fetch books from the database
-const showModal = ref(false) // Popup visible or not?
-const newBook = ref({title: '', author:'', coverClass:'!bg-slate-100' }) // blank book template
 
-//
-onMounted(async () => {
-  try {
-    const response = await databases.listDocuments(
-      import.meta.env.VITE_APPWRITE_DATABASE_ID,
-      import.meta.env.VITE_APPWRITE_COLLECTION_ID
-    )
-    books.value = response.documents // Put the database books on our shelf
-  } catch (error) {
-    console.error("failed to fetch books", error)
-  }
+const bookStore = useBookStore()
+
+// Tell the whiteboard to fetch the books when the page loads
+onMounted(() => {
+  bookStore.fetchBooks()
 })
-// Write books to database ( only details, not add the book thus far)
-async function addBook() {
-  try {
-    const response = await databases.createDocument(
-      import.meta.env.VITE_APPWRITE_DATABASE_ID,
-      import.meta.env.VITE_APPWRITE_COLLECTION_ID,
-      ID.unique(), // appwrite will make a random 20 charecter ID
-      {
-        title: newBook.value.title,
-        author: newBook.value.author,
-        coverClass: newBook.value.coverClass,
-      }
-    )
-    // Instantly push the book to the database
-    books.value.push(response)
-    showModal.value = false
-    newBook.value = {title: '', author:'', coverClass:'!bg-slate-100' }
-  } catch (error) {
-    console.error("failed to add book", error)
-  }
-}
 </script>
 
 <template>
@@ -60,12 +23,11 @@ async function addBook() {
       :key="book.$id"
       :class="['book-container', book.coverClass]"
       @click="bookStore.selectBook(book)"
-      >
+    >
       <div class="cover-frame"></div>
       <h2 class="cover-title">{{ book.title }}</h2>
       <span class="cover-author">{{ book.author }}</span>
     </brutalistcard>
-
   </div>
 </template>
 
@@ -149,8 +111,7 @@ async function addBook() {
 }
 .cover-art-3 {
   background: #31a46f;
-  colour: #676767
-  radius
+  colour: #676767 radius;
 }
 .cover-frame {
   margin: 0;
@@ -158,6 +119,5 @@ async function addBook() {
   border-block-clip: 66px;
   box-decoration-break: inherit;
   border-radius: 10px;
-
 }
 </style>

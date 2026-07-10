@@ -19,7 +19,7 @@ onMounted(() => {
 <template>
   <div class="homepage">
     <brutalistcard
-      v-for="book in books"
+      v-for="book in bookStore.books"
       :key="book.$id"
       :class="['book-container', book.coverClass]"
       @click="bookStore.selectBook(book)"

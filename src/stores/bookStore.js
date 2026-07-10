@@ -42,12 +42,12 @@ export const useBookStore = defineStore('book', () => {
       return(false)
 
     }
-    return{ selectedBook, selectBook, fetchBooks , addBook }
+
 
   }
 
   // 3. EXPORT (Make the whiteboard visible to the house)
-  return { selectedBook, selectBook }
+  return { selectedBook, books, selectBook, fetchBooks, addBook }
 })
 
 

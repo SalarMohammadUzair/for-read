@@ -28,7 +28,7 @@ import sidebar from './Components/layout/sidebar.vue'
 .app-container {
   display: grid;
   grid-template-columns: 4% 1fr 12%;
-  grid-template-rows: 5% 1fr;
+  grid-template-rows: auto 1fr;
   background-color: #faf6ee;
   height: 100vh;
 }
@@ -43,3 +43,4 @@ import sidebar from './Components/layout/sidebar.vue'
   font-family: 'courier-new', Courier, monospace;
 }
 </style>
+

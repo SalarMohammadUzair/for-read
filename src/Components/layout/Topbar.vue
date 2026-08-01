@@ -25,7 +25,7 @@ async function addBook() {
     <h1 class="top-bar-title">
       DISCLAIMER, THIS ONLY WORKS FOR EPUBS SO FAR, PLEASE DO NOT USE PDFS OR ANY OTHER DOCUMENTS
     </h1>
-    <BrutalistButton @click="showModal = true"> Add book </BrutalistButton>
+    <button class="top-bar-button" style="color: white" @click="showModal = true"> Add book </button>
   </div>
   <div v-if="showModal" class="modal-overlay">
     <div class="modal-content">
@@ -54,7 +54,7 @@ async function addBook() {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 16px;
+  padding: 8px 16px;
   border-bottom: 1.5px solid #1a1a1a;
   background-color: #f4ecd8;
   grid-column: 2;

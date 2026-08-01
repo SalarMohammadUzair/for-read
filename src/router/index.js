@@ -13,8 +13,8 @@ const router = createRouter({
       component: homeview,
     },
     {
-      path: '/reader',
-      name: 'reader'
+      path: '/read',
+      name: 'read',
       component: ReaderView,
     }
   ],

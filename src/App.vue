@@ -13,14 +13,13 @@ import sidebar from './Components/layout/sidebar.vue'
 </script>
 
 <template>
-  <div class="app-container">
-    <sidebar></sidebar>
-    <topbar></topbar>
-    <main class="main-content">
+  <div class="app-container" :class="{ 'reading-mode': $route.path === '/read' }">
+    <sidebar v-if="$route.path !== '/read'"></sidebar>
+    <topbar v-if="$route.path !== '/read'"></topbar>
+    <main class="main-content" :class="{ 'full-screen-main': $route.path === '/read' }">
       <router-view></router-view>
     </main>
-    <rightpanel></rightpanel>
-
+    <rightpanel v-if="$route.path !== '/read'"></rightpanel>
   </div>
 </template>
 
@@ -33,12 +32,26 @@ import sidebar from './Components/layout/sidebar.vue'
   height: 100vh;
 }
 
+/* When reading, kill the grid layout completely so the book has 100% space */
+.app-container.reading-mode {
+  display: block;
+}
+
 .main-content {
   grid-column: 2;
   grid-row: 2;
   padding: 40px;
   overflow-y: auto;
 }
+
+/* Strip the padding and give it full screen dimensions for the reader */
+.main-content.full-screen-main {
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 :global(body) {
   font-family: 'courier-new', Courier, monospace;
 }

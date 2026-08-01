@@ -22,7 +22,7 @@ const bookStore = useBookStore()
       </div>
       <div class="progress-bar">
         <p>progress is 0 for now ( placeholder number, working on it)</p>
-        <brutalist-button>Read now</brutalist-button>
+        <brutalist-button @click="$router.push('/read')">Read now</brutalist-button>
       </div>
 
     <br>

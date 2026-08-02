@@ -37,10 +37,40 @@ onMounted(() => {
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 32px;
 }
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    box-shadow: 0 0 0 transparent;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
 .book-container {
   cursor: pointer;
+  opacity: 0;
+  animation: slideFade 0.4s ease forwards;
   transition: transform 0.1s ease;
 }
+.book-container:nth-child(1) { animation-delay: 0.05s; }
+.book-container:nth-child(2) { animation-delay: 0.1s; }
+.book-container:nth-child(3) { animation-delay: 0.15s; }
+.book-container:nth-child(4) { animation-delay: 0.2s; }
+.book-container:nth-child(5) { animation-delay: 0.25s; }
+.book-container:nth-child(6) { animation-delay: 0.3s; }
+.book-container:nth-child(7) { animation-delay: 0.35s; }
+.book-container:nth-child(8) { animation-delay: 0.4s; }
+.book-container:nth-child(9) { animation-delay: 0.45s; }
+.book-container:nth-child(10) { animation-delay: 0.5s; }
+.book-container:nth-child(n+11) { animation-delay: 0.55s; }
+
+
+
 .book-container:hover {
   transform: translateY(-4px);
 }

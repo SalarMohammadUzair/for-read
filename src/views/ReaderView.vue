@@ -27,7 +27,7 @@ onMounted(async () => {
 
   }
 // xii.. foliate apparently does not know what book we are handing it over, we must tell it what type it is
-  await import('foliate-js/view.js')
+//   await import('/foliate-js/view.js')
 
   const container = document.getElementById('reader-view')
   if (container) {
@@ -48,6 +48,7 @@ onMounted(async () => {
     }
     const file = new File([blob], `book${extension}`, { type: blob.type })
     await view.open(file)
+    await view.init({ lastLocation: null}) // had to initialise the reader...
     console.log(`book downloaded and opened as ${extension}`)
   }
 })
@@ -83,11 +84,11 @@ onMounted(async () => {
   position: relative;
   overflow: hidden;
 }
-
-
-foliate-view {
+#reader-view :deep(foliate-view) {
   display: block;
   width: 100%;
   height: 100%;
 }
+
+
 </style>
